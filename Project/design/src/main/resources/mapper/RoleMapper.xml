@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 用mapper代理需要把命名空间写为接口的全类名 -->
+<mapper namespace="mapper.RoleMapper">
+	<!-- id是唯一标识，resultType是返回结果的类型 -->
+	<!-- 自动封装成对象，但如果sql的列名和对象的属性名不一样，，需要起别名查询，比如select user_id as userId -->
+	<select id="selectRole" resultType="pojo.Role">
+		select * from role where roleName=#{roleName} and rolePassword=#{rolePassword}
+	</select>
+	
+	<select id="selectRoleByName" resultType="pojo.Role">
+		select * from role where roleName=#{roleName}
+	</select>
+	
+	<insert id="addRole">
+		insert into role values(null,#{roleName},#{rolePassword},#{roleRemark},#{roleTel})
+	</insert>
+	
+	
+	<!-- 继上，列名和属性名不一样，常用另一种方法，resultMap映射 -->
+<!-- 	<resultMap id="随便起一个名" type="封装的对象名"> -->
+<!-- 		<result column="列名" property="属性名" /> -->
+<!-- 		<result column="列名" property="属性名" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="试验id" resultMap="resultMap的id值"> -->
+<!-- 		select * from tb_user -->
+<!-- 	</select> -->
+	
+	
+</mapper>

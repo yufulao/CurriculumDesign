@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 用mapper代理需要把命名空间写为接口的全类名 -->
+<mapper namespace="mapper.ActivityMapper">
+	<!-- id是唯一标识，resultType是返回结果的类型 -->
+	<!-- 自动封装成对象，但如果sql的列名和对象的属性名不一样，，需要起别名查询，比如select user_id as userId -->
+	<select id="selectActivity" resultType="pojo.Activity">
+		select * from activity
+	</select>
+	
+	<select id="selectNoPassedActivity" resultType="pojo.Activity">
+		select * from activity where isPassed = '0';
+	</select>
+	
+	<update id="passActivity">
+		update activity set isPassed = '1' where activityName= #{activityName}
+	</update>
+	
+	<select id="selectPassedActivity" resultType="pojo.Activity">
+		select * from activity where isPassed = '1';
+	</select>
+	
+	<insert id="addApplication">
+		insert into applications values(null,#{userName},#{activityName})
+	</insert>
+	
+	<delete id="cancelApplication">
+		DELETE FROM applications WHERE (activityName = #{activityName} AND userName = #{userName});
+	</delete>
+	
+	<select id="selectUserAppliedActivity" resultType="pojo.Application">
+		select * from applications where userName = #{userName};
+	</select>
+	
+	<update id="addPeopleCount">
+		update activity set peopleCountCurrent = peopleCountCurrent+1 where activityName= #{activityName}
+	</update>
+	
+	<update id="cutPeopleCount">
+		update activity set peopleCountCurrent = peopleCountCurrent-1 where activityName= #{activityName}
+	</update>
+	
+	<insert id="roleApply">
+		insert into activity values(null,#{activityName},0,#{startTime},#{endTime},#{peopleCountMax},0,#{requirement},#{activityIntroduction})
+	</insert>
+	
+	<select id="selectActivityByFullName" resultType="pojo.Activity">
+		select * from activity where activityName = #{activityName}
+	</select>
+	
+	<select id="selectActivityByName" resultType="pojo.Activity">
+		select * from activity
+		where activityName like '%${activityName}%'
+	</select>
+
+</mapper>

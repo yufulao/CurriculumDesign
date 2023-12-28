@@ -1,0 +1,75 @@
+body {
+	font-size: 15px
+}
+
+table {
+	border-collapse: collapse;
+	margin: auto
+}
+
+.loginDiv {
+	width: 360px !important;
+	height: 234px !important;
+	margin: 136px auto 0 auto;
+	background-image: url(../imgs/board.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+
+.registDiv {
+	width: 360px !important;
+	height: 134px !important;
+	margin: 136px auto 0 auto;
+	background-image: url(../imgs/board.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+
+.roleApplyDiv {
+	width: 360px !important;
+	height: 200px !important;
+	margin: 136px auto 0 auto;
+	background-image: url(../imgs/board.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+
+.gameDiv {
+	margin: 136px auto 0 auto;
+	background-image: url(../imgs/board.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+}
+
+.index-content-table-th th {
+	border: 1.5px solid #000;
+	font-weight: 900;
+	text-align: center;
+	color: #000;
+	background-color: #fff
+}
+
+.index-content-table-td td {
+	border: 1.5px solid #000;
+	text-align: center;
+	color: #000;
+	background-color: #fff
+}
+
+.index-content-operation-search input {
+	float: left;
+	border: 1.5px solid #000;
+	height: 33px;
+	width: 200px;
+	color: #000000;
+}
+
+.index-content-table-td-add {
+	border: .1px solid #000;
+	color: #000;
+	background-color: #fff
+}

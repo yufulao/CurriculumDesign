@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<!-- 数据库连接信息 -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://127.0.0.1/design?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useServerPrepStmts=true" /><!-- 连接用转义符&amp;  启用预编译 -->
+				<property name="username" value="root" />
+				<property name="password" value="123" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 加载mysql的映射文件 -->
+		<!--  <mapper resource="mapper/UserMapper.xml" /> -->
+		<!-- 如果实现了mapper代理，则可以使用包扫描方式加载xml -->
+		<package name="mapper"/>
+	</mappers>
+</configuration>
